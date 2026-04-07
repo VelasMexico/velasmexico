@@ -141,19 +141,14 @@ var app = {
         setTimeout(() => this.navigate('regalos'), 400); // Un pequeño delay para que vea la luz ahí
       };
 
-      if(window.voiceflow && window.voiceflow.chat && typeof window.voiceflow.chat.hide === 'function') {
-         window.voiceflow.chat.hide(); 
-      }
+      if(window.voiceflow && window.voiceflow.chat) window.voiceflow.chat.hide(); 
     } else {
       const scene = document.getElementById('interactive-scene');
       if (this._mouseMoveHandler && scene) {
           scene.removeEventListener('mousemove', this._mouseMoveHandler);
       }
       document.querySelector('.cursor-glow').style.opacity = '0';
-      // MOSTRAR CHATBOT
-      if(window.voiceflow && window.voiceflow.chat && typeof window.voiceflow.chat.show === 'function') {
-         window.voiceflow.chat.show();
-      }
+      if(window.voiceflow && window.voiceflow.chat) window.voiceflow.chat.show();
     }
 
     if(pageId === 'regalos') {
@@ -353,21 +348,6 @@ var app = {
     if(this.cart.length === 0) container.innerHTML = '<p style="text-align:center; color:#888; margin-top:2rem;">Tu canasta está vacía</p>';
     count.textContent = itemsCount;
     totalDisp.textContent = `$${total.toFixed(2)} MXN`;
-    this.syncVoiceflow();
-  },
-
-  syncVoiceflow() {
-    if (window.voiceflow && window.voiceflow.chat && typeof window.voiceflow.chat.setVariables === 'function') {
-      const itemsList = this.cart.map(item => `${item.name} (${item.qty} pzas)`).join(', ');
-      const totalAmount = this.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      
-      window.voiceflow.chat.setVariables({
-        user_cart: itemsList || "Vacío",
-        cart_total_value: totalAmount.toFixed(2),
-        last_action: "Carrito Actualizado"
-      });
-      console.log("IA Sincronizada: ", itemsList);
-    }
   },
 
   setupEasterEgg() {
