@@ -34,8 +34,10 @@ var app = {
         localStorage.removeItem('pendingOrder');
         this.cart = [];
         this.updateCartUI();
-        alert("¡Pago confirmado y pedido registrado con éxito!");
-        window.location.hash = "#home";
+        // Mostrar modal de éxito premium
+        const mpModal = document.getElementById('mp-success-modal');
+        if (mpModal) { mpModal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        history.pushState('', document.title, window.location.pathname);
       });
     }
   },
@@ -430,22 +432,34 @@ var app = {
           throw new Error("No se pudo crear la preferencia de Mercado Pago");
         }
       } else {
-        // For transfer, send IMMEDIATELY as requested for this manual flow
+        // Transferencia: enviar email a Formspree inmediatamente
         await fetch("https://formspree.io/f/xreorpje", {
           method: "POST",
           body: fd,
           headers: { 'Accept': 'application/json' }
         });
 
-        instructions.textContent = "!Recibimos tus datos!";
-        detailText.textContent = "Tu pedido ha sido registrado con éxito. Realiza el pago a la siguiente cuenta y envía tu comprobante:";
-        bankInfo.style.display = 'block';
-        button.textContent = "Enviar comprobante al WhatsApp";
-        button.href = `https://wa.me/525631328337?text=Hola,%20acabo%20de%20realizar%20mi%20pago%20por%20TRANSFERENCIA%20para%20mi%20pedido.`;
-        
+        // Construir mensaje de WhatsApp con todos los detalles del pedido
+        const waName    = fd.get('nombre') || '';
+        const waPhone   = fd.get('telefono') || '';
+        const waAddress = `${fd.get('calle')}, ${fd.get('colonia')}, CP ${fd.get('cp')}, ${fd.get('ciudad')}, ${fd.get('estado')}`;
+        const waItems   = this.cart.map(i => `• ${i.name} (x${i.qty || 1}) - $${(i.price*(i.qty||1)).toFixed(2)} MXN`).join('\n');
+        const waMsg = encodeURIComponent(
+          `🕯️ *NUEVO PEDIDO - VELAS MÉXICO*\n\n` +
+          `*Nombre:* ${waName}\n` +
+          `*WhatsApp:* ${waPhone}\n\n` +
+          `*🛒 Artículos:*\n${waItems}\n\n` +
+          `*💰 TOTAL: $${totalAmount.toFixed(2)} MXN*\n\n` +
+          `*📍 Dirección de envío:*\n${waAddress}\n\n` +
+          `*Método de pago:* Transferencia / Depósito OXXO\n` +
+          `*CLABE:* 728969000095104101\n\n` +
+          `Adjunto comprobante de pago 📎`
+        );
+        const waBtn = document.getElementById('wa-transfer-btn');
+        if (waBtn) waBtn.href = `https://wa.me/525631328337?text=${waMsg}`;
+
         document.getElementById('checkout-modal').classList.remove('active');
-        const successModal = document.getElementById('transfer-success-modal');
-        successModal.classList.add('active');
+        document.getElementById('transfer-success-modal').classList.add('active');
         this.cart = [];
         this.updateCartUI();
         document.body.style.overflow = 'hidden';

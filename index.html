@@ -438,10 +438,26 @@
 
       <p style="margin-bottom: 2rem; color: #aaa;">Una vez hecho tu pago o depósito, envíanos el comprobante por WhatsApp para despachar tu envío inmediatamente.</p>
       
-      <a href="https://wa.me/525631328337?text=Hola,%20acabo%20de%20realizar%20mi%20pedido%20y%20este%20es%20mi%20comprobante:" class="primary-btn" target="_blank" onclick="document.getElementById('transfer-success-modal').classList.remove('active'); app.cart = []; app.updateCartUI();">Enviar comprobante al WhatsApp</a>
+      <a id="wa-transfer-btn" href="https://wa.me/525631328337" class="primary-btn" target="_blank">Enviar comprobante al WhatsApp 📱</a>
     </div>
   </div>
 
+  <!-- MP Payment Success Modal -->
+  <div id="mp-success-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 520px; text-align: center; padding: 3rem 2rem;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+      <h2 style="font-family: var(--font-title); color: var(--color-accent); font-size: 2.5rem; margin-bottom: 1rem;">¡Pago Confirmado!</h2>
+      <p style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.7;">
+        Tu pedido ha sido registrado con éxito y enviamos la confirmación a tu correo electrónico.
+      </p>
+      <p style="color: #aaa; margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.6;">
+        Nos pondremos en contacto contigo pronto para <strong style="color: var(--color-accent);">iniciar la producción</strong> de tus velas artesanales. 🕯️
+      </p>
+      <button class="primary-btn" onclick="document.getElementById('mp-success-modal').classList.remove('active'); document.body.style.overflow='auto'; app.navigate('catalogo');" style="background: linear-gradient(135deg, #d4af37, #f0c040); color: #000; font-weight: bold; letter-spacing: 2px; padding: 1rem 2.5rem; border: none; border-radius: 8px; cursor: pointer; font-family: 'Montserrat', sans-serif; text-transform: uppercase;">
+        ¡Seguir Explorando! 🛍️
+      </button>
+    </div>
+  </div>
   <script src="app.js"></script>
   <script type="text/javascript">
     (function(d, t) {
