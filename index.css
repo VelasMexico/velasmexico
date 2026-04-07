@@ -446,9 +446,9 @@ nav.scroll-up {
 /* == MODAL == */
 .modal-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
   display: flex; justify-content: center; align-items: center;
-  z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.4s;
+  z-index: 99999; opacity: 0; pointer-events: none; transition: opacity 0.4s;
 }
 .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
@@ -575,20 +575,24 @@ nav.scroll-up {
 }
 .payment-option {
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(212,175,55,0.2);
-  border-radius: 8px;
+  border: 2px solid rgba(212,175,55,0.1);
+  border-radius: 12px;
   padding: 1.2rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 .payment-option:hover {
-  background: rgba(212,175,55,0.05);
-  border-color: var(--color-gold-soft);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(212,175,55,0.3);
 }
 .payment-option:has(input:checked) {
-  background: rgba(212,175,55,0.08) !important;
+  background: rgba(212,175,55,0.1) !important;
   border-color: #d4af37 !important;
-  box-shadow: 0 0 15px rgba(212,175,55,0.1);
+  box-shadow: 0 0 20px rgba(212,175,55,0.15);
 }
 .payment-option input:checked + .option-content {
   color: #fff;
