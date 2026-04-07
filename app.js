@@ -14,17 +14,35 @@ var app = {
     this.setupCheckout();
 
     // Check if we just returned from a successful Mercado Pago payment
-    if (window.location.hash.includes('success')) {
-      this.handlePostPaymentSuccess();
-    }
+    this.handlePostPaymentSuccess();
   },
 
   handlePostPaymentSuccess() {
+    const params = new URLSearchParams(window.location.search);
+    const mpStatus = params.get('status');
+    const mpPaymentId = params.get('payment_id');
+    const mpPreferenceId = params.get('preference_id');
+
+    // Only process if it is a successful return from Mercado Pago
+    // or if we have it in hash for backwards compatibility, but prioritizing URL params
+    const isSuccess = mpStatus === 'approved' || window.location.hash.includes('success');
+    
     const pendingOrder = localStorage.getItem('pendingOrder');
-    if (pendingOrder) {
+    
+    if (isSuccess && pendingOrder) {
       const fd = new FormData();
       const orderData = JSON.parse(pendingOrder);
+      
+      // Fill the FormData with customer and order data
       for (const key in orderData) { fd.append(key, orderData[key]); }
+
+      // Append the Mercado Pago proof of payment
+      if (mpPaymentId) {
+        fd.append('MP_ID_PAGO', mpPaymentId);
+        fd.append('MP_STATUS', mpStatus);
+        fd.append('MP_PREFERENCE', mpPreferenceId);
+        fd.set('_subject', `💰 PAGO CONFIRMADO - ${orderData['nombre'] || 'Cliente'} - Velas México`);
+      }
 
       fetch("https://formspree.io/f/xreorpje", {
         method: "POST",
@@ -34,10 +52,13 @@ var app = {
         localStorage.removeItem('pendingOrder');
         this.cart = [];
         this.updateCartUI();
-        // Mostrar modal de éxito premium
+        
+        // Show the premium success modal
         const mpModal = document.getElementById('mp-success-modal');
         if (mpModal) { mpModal.classList.add('active'); document.body.style.overflow = 'hidden'; }
-        history.pushState('', document.title, window.location.pathname);
+        
+        // Clean URL to avoid duplicate emails on refresh
+        window.history.replaceState({}, document.title, window.location.pathname);
       });
     }
   },
