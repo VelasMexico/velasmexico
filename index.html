@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Velas México Chema Corazón de Cera | Velas Artesanales</title>
-  <meta name="description" content="Velas México Chema Corazón de Cera - Velas artesanales de lujo para momentos significativos. Experimenta el ambiente, la calidez y la conexión.">
-  
+  <meta name="description"
+    content="Velas México Chema Corazón de Cera - Velas artesanales de lujo para momentos significativos. Experimenta el ambiente, la calidez y la conexión.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="index.css">
   <script src="https://js.stripe.com/v3/"></script>
 </head>
+
 <body>
   <!-- MOBILE MENU TRIGGER (Icono Llamativo pero Elegante) -->
-  <button id="mobile-menu-trigger" 
-          style="display:none; position:fixed; top:1.2rem; left:1.2rem; z-index:999999; background:rgba(17,17,17,0.6); border:0.5px solid rgba(212,175,55,0.4); padding:10px; border-radius:50%; cursor:pointer; width:48px; height:48px; flex-direction:column; justify-content:center; align-items:center; gap:5px;"
-          onclick="var n=document.getElementById('nav-links'); n.style.display='flex'; document.body.style.overflow='hidden';">
+  <button id="mobile-menu-trigger"
+    style="display:none; position:fixed; top:1.2rem; left:1.2rem; z-index:999999; background:rgba(17,17,17,0.6); border:0.5px solid rgba(212,175,55,0.4); padding:10px; border-radius:50%; cursor:pointer; width:48px; height:48px; flex-direction:column; justify-content:center; align-items:center; gap:5px;"
+    onclick="var n=document.getElementById('nav-links'); n.style.display='flex'; document.body.style.overflow='hidden';">
     <div style="width:22px; height:1.5px; background:#d4af37;"></div>
     <div style="width:22px; height:1.5px; background:#d4af37;"></div>
     <div style="width:22px; height:1.5px; background:#d4af37;"></div>
@@ -25,31 +30,51 @@
 
   <style>
     @media (max-width: 768px) {
-      #mobile-menu-trigger { display: flex !important; }
-      #navbar { padding-left: 4.5rem; } /* Dar espacio al botón de menú */
-      
+      #mobile-menu-trigger {
+        display: flex !important;
+      }
+
+      #navbar {
+        padding-left: 4.5rem;
+      }
+
+      /* Dar espacio al botón de menú */
+
       #nav-links {
         display: none;
         flex-direction: column;
-        justify-content: flex-start; /* Permite scroll desde arriba */
+        justify-content: flex-start;
+        /* Permite scroll desde arriba */
         align-items: center;
         position: fixed;
-        top: 0; left: 0;
-        width: 100vw; height: 100vh;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
         background: #0f1216;
         z-index: 9999999;
-        margin: 0; 
-        padding: 6rem 2rem 3rem 2rem; /* Espacio arriba para no tapar el botón de cerrar */
+        margin: 0;
+        padding: 6rem 2rem 3rem 2rem;
+        /* Espacio arriba para no tapar el botón de cerrar */
         list-style: none;
-        overflow-y: auto; /* Habilita el scroll dentro del menú */
-        overscroll-behavior: contain; /* Evita que el fondo se mueva */
+        overflow-y: auto;
+        /* Habilita el scroll dentro del menú */
+        overscroll-behavior: contain;
+        /* Evita que el fondo se mueva */
         -webkit-overflow-scrolling: touch;
       }
-      
-      #nav-links li { margin: 0.8rem 0; width: 100%; text-align: center; flex-shrink: 0; }
-      #nav-links li a { 
+
+      #nav-links li {
+        margin: 0.8rem 0;
+        width: 100%;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      #nav-links li a {
         font-family: 'Cormorant Garamond', serif !important;
-        font-size: 1.6rem !important; /* Más chico para celular */
+        font-size: 1.6rem !important;
+        /* Más chico para celular */
         color: #fff !important;
         text-decoration: none;
         text-transform: uppercase;
@@ -58,16 +83,28 @@
         padding: 0.8rem 0;
         display: inline-block;
       }
-      #nav-links li a:hover { color: #d4af37 !important; }
-      
+
+      #nav-links li a:hover {
+        color: #d4af37 !important;
+      }
+
       /* Botón de cerrar fijo para que no se mueva al scrollear el menú */
-      .mobile-close-btn { 
-        position: absolute; top: 1.5rem; right: 1.5rem;
-        background: rgba(17,17,17,0.8); border: none; color: #d4af37;
-        font-size: 2.5rem; cursor: pointer; line-height: 1;
-        z-index: 10000000; padding: 5px; border-radius: 5px;
+      .mobile-close-btn {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: rgba(17, 17, 17, 0.8);
+        border: none;
+        color: #d4af37;
+        font-size: 2.5rem;
+        cursor: pointer;
+        line-height: 1;
+        z-index: 10000000;
+        padding: 5px;
+        border-radius: 5px;
       }
     }
+
     .payment-method-title {
       margin: 2rem 0 1rem;
       color: #fff;
@@ -77,6 +114,7 @@
       font-family: 'Montserrat', sans-serif !important;
       font-weight: 600;
     }
+
     .shipping-title {
       font-family: 'Montserrat', sans-serif !important;
       color: #fff;
@@ -91,18 +129,32 @@
   <nav id="navbar">
     <ul class="nav-links" id="nav-links">
       <li class="mobile-only">
-        <button class="mobile-close-btn" onclick="document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';">&times;</button>
+        <button class="mobile-close-btn"
+          onclick="document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';">&times;</button>
       </li>
-      <li><a href="#home" class="nav-link active" onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Inicio</a></li>
-      <li><a href="#catalogo" class="nav-link" onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Catálogo</a></li>
-      <li><a href="#quienes-somos" class="nav-link" onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Quiénes Somos</a></li>
-      <li><a href="#historia" class="nav-link" onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Nuestra Historia</a></li>
-      <li><a href="#easteregg" class="nav-link" onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">¡Sorpréndete!</a></li>
-      <li><a href="#contacto" class="nav-link" onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Contacto</a></li>
+      <li><a href="#home" class="nav-link active"
+          onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Inicio</a>
+      </li>
+      <li><a href="#catalogo" class="nav-link"
+          onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Catálogo</a>
+      </li>
+      <li><a href="#quienes-somos" class="nav-link"
+          onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Quiénes
+          Somos</a></li>
+      <li><a href="#historia" class="nav-link"
+          onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Nuestra
+          Historia</a></li>
+      <li><a href="#easteregg" class="nav-link"
+          onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">¡Sorpréndete!</a>
+      </li>
+      <li><a href="#contacto" class="nav-link"
+          onclick="if(window.innerWidth<=768){document.getElementById('nav-links').style.display='none'; document.body.style.overflow='auto';}">Contacto</a>
+      </li>
     </ul>
     <div class="nav-actions">
       <button id="cart-btn" class="cart-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" style="width: 20px; height: 20px;">
           <circle cx="9" cy="21" r="1"></circle>
           <circle cx="20" cy="21" r="1"></circle>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -115,7 +167,7 @@
 
   <!-- Pages Container -->
   <main id="app-container">
-    
+
     <!-- HOME -->
     <section id="home" class="page active">
       <div class="hero">
@@ -124,16 +176,27 @@
           <h1 class="brand-hero fade-in-up">Velas México<br>Chema Corazón de Cera</h1>
           <p class="fade-in-up delay-1">Más que una vela, es el latido de un espacio que cobra vida.</p>
           <button class="cta-btn fade-in-up delay-2" onclick="app.navigate('catalogo')">Explorar catálogo</button>
-          
+
           <div class="social-links-home fade-in-up delay-2">
             <a href="https://facebook.com/velasmexico.chemacorazondecera/" target="_blank" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
             </a>
             <a href="https://instagram.com/velasmexico.chemacorazondecera/" target="_blank" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
             </a>
             <a href="https://wa.me/525631328337" target="_blank" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.996.004C5.378.004.004 5.38.004 12c0 2.115.55 4.103 1.516 5.823L0 24l6.33-1.637a11.96 11.96 0 005.666 1.432c6.618 0 11.996-5.376 11.996-11.996C24 5.38 18.614.004 11.996.004zm6.678 17.15c-.295.834-1.503 1.516-2.155 1.632-.613.11-1.428.188-4.232-1.025-3.326-1.438-5.46-4.9-5.63-5.118-.17-.22-1.34-1.78-1.34-3.4 0-1.618.84-2.422 1.134-2.738.29-.313.63-.39.84-.39h.546c.21 0 .504-.08.798.63.315.753 1.05 2.56 1.134 2.738.084.18.146.39-.02.6-.17.21-.252.336-.42.525-.168.188-.358.388-.504.545-.168.172-.34.364-.147.69.19.325.85 1.396 1.83 2.27 1.258 1.127 2.308 1.472 2.645 1.638.336.168.525.147.734-.084.21-.23 1.008-1.173 1.282-1.574.272-.398.545-.335.86-.21.314.125 1.994.943 2.33 1.11.334.17.565.25.65.39.082.146.082.83-.21 1.666z"/></svg> 
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M11.996.004C5.378.004.004 5.38.004 12c0 2.115.55 4.103 1.516 5.823L0 24l6.33-1.637a11.96 11.96 0 005.666 1.432c6.618 0 11.996-5.376 11.996-11.996C24 5.38 18.614.004 11.996.004zm6.678 17.15c-.295.834-1.503 1.516-2.155 1.632-.613.11-1.428.188-4.232-1.025-3.326-1.438-5.46-4.9-5.63-5.118-.17-.22-1.34-1.78-1.34-3.4 0-1.618.84-2.422 1.134-2.738.29-.313.63-.39.84-.39h.546c.21 0 .504-.08.798.63.315.753 1.05 2.56 1.134 2.738.084.18.146.39-.02.6-.17.21-.252.336-.42.525-.168.188-.358.388-.504.545-.168.172-.34.364-.147.69.19.325.85 1.396 1.83 2.27 1.258 1.127 2.308 1.472 2.645 1.638.336.168.525.147.734-.084.21-.23 1.008-1.173 1.282-1.574.272-.398.545-.335.86-.21.314.125 1.994.943 2.33 1.11.334.17.565.25.65.39.082.146.082.83-.21 1.666z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -149,7 +212,7 @@
           <button class="filter-btn" data-sort="name">Por Nombre</button>
           <button class="filter-btn" data-sort="price">Por Precio</button>
         </div>
-        
+
         <div id="product-grid" class="product-grid">
           <!-- Products will be injected here via JS -->
           <div class="loading-catalog">Cargando catálogo...</div>
@@ -163,10 +226,13 @@
         <h2 class="section-title">Nuestra Esencia</h2>
         <div class="story-content parallax-element">
           <p class="story-text">
-            Somos un equipo familiar donde la experiencia se encuentra con la curiosidad. Nuestra historia se escribe cada día entre el aroma de la cera y el calor del taller, donde aprendemos el uno del otro para perfeccionar un oficio que amamos.
+            Somos un equipo familiar donde la experiencia se encuentra con la curiosidad. Nuestra historia se escribe
+            cada día entre el aroma de la cera y el calor del taller, donde aprendemos el uno del otro para perfeccionar
+            un oficio que amamos.
           </p>
           <p class="story-text">
-            En cada vela que entregamos, va el compromiso de ofrecerte una pieza única, creada con dedicación absoluta y una visión fresca de lo que significa iluminar un momento.
+            En cada vela que entregamos, va el compromiso de ofrecerte una pieza única, creada con dedicación absoluta y
+            una visión fresca de lo que significa iluminar un momento.
           </p>
         </div>
       </div>
@@ -176,21 +242,30 @@
     <section id="historia" class="page">
       <div class="container section-padding">
         <h2 class="section-title">Artesanía y Origen</h2>
-        <p class="story-text" style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #d0d0d0; line-height: 1.8;">
-          Nuestro origen es sencillo: un espacio lleno de aromas, moldes y el calor constante del fuego. La artesanía para nosotros es un estilo de vida, es el orden dentro del caos creativo de nuestro taller. Aquí es donde transformamos la cera en compañía. Cada vela que sale de nuestras manos lleva consigo el compromiso de calidad y dedicación de una familia que ha hecho del taller su segundo hogar.
+        <p class="story-text"
+          style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #d0d0d0; line-height: 1.8;">
+          Nuestro origen es sencillo: un espacio lleno de aromas, moldes y el calor constante del fuego. La artesanía
+          para nosotros es un estilo de vida, es el orden dentro del caos creativo de nuestro taller. Aquí es donde
+          transformamos la cera en compañía. Cada vela que sale de nuestras manos lleva consigo el compromiso de calidad
+          y dedicación de una familia que ha hecho del taller su segundo hogar.
         </p>
         <div class="timeline">
           <div class="timeline-item appear-scroll">
             <h3>El Origen</h3>
-            <p>Todo comienza en nuestro taller, un espacio lleno de aromas, moldes y el calor constante del fuego. Aquí la artesanía no es solo un proceso, es nuestro estilo de vida y el orden dentro de nuestro caos creativo.</p>
+            <p>Todo comienza en nuestro taller, un espacio lleno de aromas, moldes y el calor constante del fuego. Aquí
+              la artesanía no es solo un proceso, es nuestro estilo de vida y el orden dentro de nuestro caos creativo.
+            </p>
           </div>
           <div class="timeline-item appear-scroll">
             <h3>Materiales</h3>
-            <p>Transformamos la cera en compañía utilizando solo ingredientes que respetan tu bienestar. Seleccionamos cada elemento con el compromiso de calidad de una familia que ha hecho del taller su segundo hogar.</p>
+            <p>Transformamos la cera en compañía utilizando solo ingredientes que respetan tu bienestar. Seleccionamos
+              cada elemento con el compromiso de calidad de una familia que ha hecho del taller su segundo hogar.</p>
           </div>
           <div class="timeline-item appear-scroll">
             <h3>Elaboración</h3>
-            <p>Cada vela que sale de nuestras manos lleva una dedicación absoluta. Vertemos cada pieza con paciencia y precisión, asegurando que el alma de nuestro trabajo ilumine tus momentos con una quemadura limpia y duradera.</p>
+            <p>Cada vela que sale de nuestras manos lleva una dedicación absoluta. Vertemos cada pieza con paciencia y
+              precisión, asegurando que el alma de nuestro trabajo ilumine tus momentos con una quemadura limpia y
+              duradera.</p>
           </div>
         </div>
       </div>
@@ -202,7 +277,7 @@
         <h2 class="section-title">Conecta con Nosotros</h2>
         <form id="contact-form" class="minimal-form" action="https://formspree.io/f/xreorpje" method="POST">
           <input type="hidden" name="_subject" value="Nuevo Mensaje de Velas México">
-          
+
           <div class="input-group">
             <input type="text" id="name" name="Nombre" required placeholder="Tu Nombre">
             <label for="name">Tu Nombre</label>
@@ -221,11 +296,15 @@
           </div>
           <button type="submit" class="submit-btn">Enviar solicitud</button>
         </form>
-        
+
         <div class="whatsapp-btn-container">
-          <a href="https://wa.me/525631328337?text=Hola,%20quisiera%20más%20información%20y%20conocer%20sus%20productos." target="_blank" class="whatsapp-btn" title="Ir a WhatsApp">
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.996.004C5.378.004.004 5.38.004 12c0 2.115.55 4.103 1.516 5.823L0 24l6.33-1.637a11.96 11.96 0 005.666 1.432c6.618 0 11.996-5.376 11.996-11.996C24 5.38 18.614.004 11.996.004zm6.678 17.15c-.295.834-1.503 1.516-2.155 1.632-.613.11-1.428.188-4.232-1.025-3.326-1.438-5.46-4.9-5.63-5.118-.17-.22-1.34-1.78-1.34-3.4 0-1.618.84-2.422 1.134-2.738.29-.313.63-.39.84-.39h.546c.21 0 .504-.08.798.63.315.753 1.05 2.56 1.134 2.738.084.18.146.39-.02.6-.17.21-.252.336-.42.525-.168.188-.358.388-.504.545-.168.172-.34.364-.147.69.19.325.85 1.396 1.83 2.27 1.258 1.127 2.308 1.472 2.645 1.638.336.168.525.147.734-.084.21-.23 1.008-1.173 1.282-1.574.272-.398.545-.335.86-.21.314.125 1.994.943 2.33 1.11.334.17.565.25.65.39.082.146.082.83-.21 1.666z"/></svg> 
-             Contacto Rápido
+          <a href="https://wa.me/525631328337?text=Hola,%20quisiera%20más%20información%20y%20conocer%20sus%20productos."
+            target="_blank" class="whatsapp-btn" title="Ir a WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M11.996.004C5.378.004.004 5.38.004 12c0 2.115.55 4.103 1.516 5.823L0 24l6.33-1.637a11.96 11.96 0 005.666 1.432c6.618 0 11.996-5.376 11.996-11.996C24 5.38 18.614.004 11.996.004zm6.678 17.15c-.295.834-1.503 1.516-2.155 1.632-.613.11-1.428.188-4.232-1.025-3.326-1.438-5.46-4.9-5.63-5.118-.17-.22-1.34-1.78-1.34-3.4 0-1.618.84-2.422 1.134-2.738.29-.313.63-.39.84-.39h.546c.21 0 .504-.08.798.63.315.753 1.05 2.56 1.134 2.738.084.18.146.39-.02.6-.17.21-.252.336-.42.525-.168.188-.358.388-.504.545-.168.172-.34.364-.147.69.19.325.85 1.396 1.83 2.27 1.258 1.127 2.308 1.472 2.645 1.638.336.168.525.147.734-.084.21-.23 1.008-1.173 1.282-1.574.272-.398.545-.335.86-.21.314.125 1.994.943 2.33 1.11.334.17.565.25.65.39.082.146.082.83-.21 1.666z" />
+            </svg>
+            Contacto Rápido
           </a>
         </div>
       </div>
@@ -246,33 +325,50 @@
     <section id="regalos" class="page">
       <div class="container section-padding">
         <h2 class="section-title">Un obsequio del corazón</h2>
-        <p class="subtitle text-center">Has descubierto nuestra luz secreta. Descubre estas ofertas especiales preparadas solo para ti.</p>
-        
+        <p class="subtitle text-center">Has descubierto nuestra luz secreta. Descubre estas ofertas especiales
+          preparadas solo para ti.</p>
+
         <div class="share-to-win" id="share-prompt">
-          <p class="gold-instruction text-center" style="font-size: 1.5rem; margin-top:2rem;">Comparte en tus redes sociales para revelar tu premio secreto</p>
+          <p class="gold-instruction text-center" style="font-size: 1.5rem; margin-top:2rem;">Comparte en tus redes
+            sociales para revelar tu premio secreto</p>
           <div class="social-share-icons">
-             <a href="#" class="share-btn twitter" onclick="app.shareAndUnlock('twitter')">
-               <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-             </a>
-             <a href="#" class="share-btn facebook" onclick="app.shareAndUnlock('facebook')">
-               <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-             </a>
-             <a href="#" class="share-btn instagram" onclick="app.shareAndUnlock('instagram')">
-               <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-             </a>
-             <a href="#" class="share-btn tiktok" onclick="app.shareAndUnlock('tiktok')">
-               <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.66a6.34 6.34 0 0010.86 4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.52z"/></svg>
-             </a>
+            <a href="#" class="share-btn twitter" onclick="app.shareAndUnlock('twitter')">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+              </svg>
+            </a>
+            <a href="#" class="share-btn facebook" onclick="app.shareAndUnlock('facebook')">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="#" class="share-btn instagram" onclick="app.shareAndUnlock('instagram')">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
+            <a href="#" class="share-btn tiktok" onclick="app.shareAndUnlock('tiktok')">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.66a6.34 6.34 0 0010.86 4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.52z" />
+              </svg>
+            </a>
           </div>
         </div>
 
         <div id="unlocked-reward" style="display: none; text-align: center; margin-top: 3rem;">
-           <h3 style="color: var(--color-accent); font-family: var(--font-title); font-size: 3rem; margin-bottom: 1rem;">¡Felicidades! Aquí tienes tu regalo</h3>
-           <p style="color: var(--color-gold-soft); margin-bottom: 2.5rem; font-size: 1.2rem;">Disfruta de este obsequio especial: tu guía premium.</p>
-           
-           <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-             <a href="assets/guia_premium_velas.pdf" download="guia_premium_velas.pdf" class="primary-btn" style="text-decoration:none; font-size: 1.1rem; padding: 1.3rem 3rem;">Descargar Guía PDF Premium</a>
-           </div>
+          <h3 style="color: var(--color-accent); font-family: var(--font-title); font-size: 3rem; margin-bottom: 1rem;">
+            ¡Felicidades! Aquí tienes tu regalo</h3>
+          <p style="color: var(--color-gold-soft); margin-bottom: 2.5rem; font-size: 1.2rem;">Disfruta de este obsequio
+            especial: tu guía premium.</p>
+
+          <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <a href="assets/guia_premium_velas.pdf" download="guia_premium_velas.pdf" class="primary-btn"
+              style="text-decoration:none; font-size: 1.1rem; padding: 1.3rem 3rem;">Descargar Guía PDF Premium</a>
+          </div>
         </div>
       </div>
     </section>
@@ -290,12 +386,15 @@
           <h3 id="modal-title">Nombre</h3>
           <p id="modal-price">$0</p>
           <p id="modal-size">Medidas: <span>--</span></p>
-          
+
           <!-- MENSAJE DE AROMA -->
-          <div class="aroma-badge" style="margin: 1.2rem 0; padding: 1rem; background: rgba(212,175,55,0.08); border: 1px dashed var(--color-accent); border-radius: 12px; display: flex; align-items: center; gap: 10px;">
+          <div class="aroma-badge"
+            style="margin: 1.2rem 0; padding: 1rem; background: rgba(212,175,55,0.08); border: 1px dashed var(--color-accent); border-radius: 12px; display: flex; align-items: center; gap: 10px;">
             <span style="font-size: 1.4rem;">✨</span>
-            <p style="color: var(--color-accent); font-size: 0.95rem; margin: 0; font-family: var(--font-clean); line-height: 1.4;">
-              <strong>Aroma a elegir:</strong> Al confirmar tu pedido vía WhatsApp, personalizaremos tu vela con nuestras fragancias exclusivas.
+            <p
+              style="color: var(--color-accent); font-size: 0.95rem; margin: 0; font-family: var(--font-clean); line-height: 1.4;">
+              <strong>Aroma a elegir:</strong> Al confirmar tu pedido vía WhatsApp, personalizaremos tu vela con
+              nuestras fragancias exclusivas.
             </p>
           </div>
 
@@ -305,12 +404,14 @@
             <ul id="modal-materials-list"></ul>
           </div>
           <div class="modal-quantity-wrapper">
-             <label for="modal-qty" style="color:var(--color-gold-soft);">Piezas (1-30):</label>
-             <input type="number" id="modal-qty" min="1" max="30" value="1">
+            <label for="modal-qty" style="color:var(--color-gold-soft);">Piezas (1-30):</label>
+            <input type="number" id="modal-qty" min="1" max="30" value="1">
           </div>
           <div class="modal-disclaimer">
-             <p>* De 1 a 30 piezas el tiempo de entrega es de 3 a 15 días hábiles, dependiendo la cantidad y el modelo.</p>
-             <p>* Para pedidos de mayoreo (más de 30 piezas), favor de contactarnos a través de WhatsApp para recibir una cotización personalizada y tiempos de entrega exactos.</p>
+            <p>* De 1 a 30 piezas el tiempo de entrega es de 3 a 15 días hábiles, dependiendo la cantidad y el modelo.
+            </p>
+            <p>* Para pedidos de mayoreo (más de 30 piezas), favor de contactarnos a través de WhatsApp para recibir una
+              cotización personalizada y tiempos de entrega exactos.</p>
           </div>
           <button id="modal-add-cart" class="primary-btn">Añadir a la canasta</button>
         </div>
@@ -336,15 +437,22 @@
 
   <!-- Checkout Modal -->
   <div id="checkout-modal" class="modal-overlay">
-    <div class="modal-content checkout-modal-pro" style="max-width: 800px; background: #1a1e24; border: 1px solid #d4af37; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="modal-content checkout-modal-pro"
+      style="max-width: 800px; background: #1a1e24; border: 1px solid #d4af37; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
       <div style="background: #111; padding: 2rem; border-bottom: 1px solid rgba(212,175,55,0.3); position: relative;">
-        <button class="modal-close" style="position: absolute; top: 1rem; right: 1rem; color: #fff; font-size: 2.5rem;" onclick="app.closeCheckout();">&times;</button>
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #d4af37; margin: 0; text-transform: uppercase; text-align: center;">Procesar Pedido</h2>
+        <button class="modal-close" style="position: absolute; top: 1rem; right: 1rem; color: #fff; font-size: 2.5rem;"
+          onclick="app.closeCheckout();">&times;</button>
+        <h2
+          style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #d4af37; margin: 0; text-transform: uppercase; text-align: center;">
+          Procesar Pedido</h2>
       </div>
 
-      <div class="checkout-scroll-area" style="padding: 2.5rem; overflow-y: auto; max-height: 75vh; -webkit-overflow-scrolling: touch;">
+      <div class="checkout-scroll-area"
+        style="padding: 2.5rem; overflow-y: auto; max-height: 75vh; -webkit-overflow-scrolling: touch;">
         <form id="checkout-form" onsubmit="event.preventDefault(); app.processStripeCheckout();">
-          <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #fff; opacity: 0.8; margin-bottom: 1.5rem; text-transform: uppercase;">1. Datos Personales</h3>
+          <h3
+            style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #fff; opacity: 0.8; margin-bottom: 1.5rem; text-transform: uppercase;">
+            1. Datos Personales</h3>
           <div class="form-grid">
             <div class="input-group full-width" style="grid-column: span 2;">
               <input type="text" id="chk-name" required placeholder="Nombre Completo" name="nombre">
@@ -360,7 +468,9 @@
             </div>
           </div>
 
-          <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #fff; opacity: 0.8; margin: 2rem 0 1.5rem; text-transform: uppercase;">2. Dirección de Envío</h3>
+          <h3
+            style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #fff; opacity: 0.8; margin: 2rem 0 1.5rem; text-transform: uppercase;">
+            2. Dirección de Envío</h3>
           <div class="form-grid">
             <div class="input-group full-width" style="grid-column: span 2;">
               <input type="text" id="chk-address" required placeholder="Calle y Número" name="calle">
@@ -387,13 +497,16 @@
           <h3 class="payment-method-title">3. Método de Pago</h3>
           <div class="payment-methods">
             <label class="payment-option">
-              <input type="radio" name="payment-method" value="mercado-pago" checked style="position: absolute; opacity: 0; pointer-events: none;">
+              <input type="radio" name="payment-method" value="mercado-pago" checked
+                style="position: absolute; opacity: 0; pointer-events: none;">
               <div class="option-content">
                 <div class="icon-wrap" style="width: 44px; flex-shrink: 0; display: flex; justify-content: center;">
                   <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" fill="#009EE3"/>
-                    <path d="M72 50C72 62.1503 62.1503 72 50 72C37.8497 72 28 62.1503 28 50C28 37.8497 37.8497 28 50 28C62.1503 28 72 37.8497 72 50Z" fill="white" fill-opacity="0.2"/>
-                    <path d="M50 65L35 50L50 35L65 50L50 65Z" fill="white"/>
+                    <circle cx="50" cy="50" r="50" fill="#009EE3" />
+                    <path
+                      d="M72 50C72 62.1503 62.1503 72 50 72C37.8497 72 28 62.1503 28 50C28 37.8497 37.8497 28 50 28C62.1503 28 72 37.8497 72 50Z"
+                      fill="white" fill-opacity="0.2" />
+                    <path d="M50 65L35 50L50 35L65 50L50 65Z" fill="white" />
                   </svg>
                 </div>
                 <div class="text">
@@ -403,7 +516,8 @@
               </div>
             </label>
             <label class="payment-option">
-              <input type="radio" name="payment-method" value="transfer" style="position: absolute; opacity: 0; pointer-events: none;">
+              <input type="radio" name="payment-method" value="transfer"
+                style="position: absolute; opacity: 0; pointer-events: none;">
               <div class="option-content">
                 <div class="icon-wrap" style="width: 44px; flex-shrink: 0; display: flex; justify-content: center;">
                   <span style="font-size: 2rem;">🏦</span>
@@ -416,7 +530,9 @@
             </label>
           </div>
 
-          <button id="confirm-order-btn" type="submit" class="primary-btn" style="width: 100%; margin-top: 2rem; padding: 1.5rem; font-size: 1.2rem; background: #d4af37; color: #000; font-weight: bold; border-radius: 8px; font-family: 'Montserrat', sans-serif; cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 2px;">CONFIRMAR PEDIDO</button>
+          <button id="confirm-order-btn" type="submit" class="primary-btn"
+            style="width: 100%; margin-top: 2rem; padding: 1.5rem; font-size: 1.2rem; background: #d4af37; color: #000; font-weight: bold; border-radius: 8px; font-family: 'Montserrat', sans-serif; cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 2px;">CONFIRMAR
+            PEDIDO</button>
         </form>
       </div>
     </div>
@@ -424,24 +540,35 @@
 
   <!-- Transfer Success Modal -->
   <div id="transfer-success-modal" class="modal-overlay">
-    <div class="modal-content" style="max-width: 550px; text-align: center; padding: 3.5rem 2rem; max-height: 90vh; overflow-y: auto; position: relative;">
-      <button class="modal-close" onclick="document.getElementById('transfer-success-modal').classList.remove('active'); document.body.style.overflow='auto';">&times;</button>
-      
-      <h2 style="font-family: var(--font-title); color: var(--color-accent); font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">¡Recibimos tus datos!</h2>
-      
+    <div class="modal-content"
+      style="max-width: 550px; text-align: center; padding: 3.5rem 2rem; max-height: 90vh; overflow-y: auto; position: relative;">
+      <button class="modal-close"
+        onclick="document.getElementById('transfer-success-modal').classList.remove('active'); document.body.style.overflow='auto';">&times;</button>
+
+      <h2
+        style="font-family: var(--font-title); color: var(--color-accent); font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">
+        ¡Recibimos tus datos!</h2>
+
       <p style="color: #fff; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.6; opacity: 0.9;">
-        Tu pedido ha sido registrado con éxito. Para proceder al envío de tus piezas, realiza el pago a la siguiente cuenta:
+        Tu pedido ha sido registrado con éxito. Para proceder al envío de tus piezas, realiza el pago a la siguiente
+        cuenta:
       </p>
-      
-      <div style="background: rgba(212,175,55,0.08); border: 1px solid var(--color-gold-soft); padding: 1.8rem; border-radius: 12px; margin-bottom: 2.5rem; text-align: left;">
+
+      <div
+        style="background: rgba(212,175,55,0.08); border: 1px solid var(--color-gold-soft); padding: 1.8rem; border-radius: 12px; margin-bottom: 2.5rem; text-align: left;">
         <p style="margin-bottom: 0.8rem; font-size: 1rem; color: #fff; opacity: 0.8;"><b>BANCO:</b> Spin by Oxxo</p>
-        <p style="margin-bottom: 0.8rem; font-size: 1rem; color: #fff; opacity: 0.8;"><b>TITULAR:</b> Jimena Ortiz Chavero</p>
-        <p style="margin-bottom: 0; font-size: 1rem; color: #fff; opacity: 0.8;"><b>CLABE:</b> <br><span style="font-size: 1.3rem; color: var(--color-accent); letter-spacing: 2px; font-weight: bold; display: block; margin-top: 5px;">728969000095104101</span></p>
+        <p style="margin-bottom: 0.8rem; font-size: 1rem; color: #fff; opacity: 0.8;"><b>TITULAR:</b> Jimena Ortiz
+          Chavero</p>
+        <p style="margin-bottom: 0; font-size: 1rem; color: #fff; opacity: 0.8;"><b>CLABE:</b> <br><span
+            style="font-size: 1.3rem; color: var(--color-accent); letter-spacing: 2px; font-weight: bold; display: block; margin-top: 5px;">728969000095104101</span>
+        </p>
       </div>
 
-      <p style="margin-bottom: 2rem; color: #aaa; font-style: italic;">Una vez hecho tu pago o depósito, envíanos el comprobante por WhatsApp para despachar tu envío inmediatamente.</p>
-      
-      <a id="wa-transfer-btn" href="https://wa.me/525631328337" class="primary-btn" target="_blank" style="display: block; width: 100%; text-decoration: none; padding: 1.2rem; font-weight: bold; background: #25D366; color: #fff; border-radius: 8px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px;">
+      <p style="margin-bottom: 2rem; color: #aaa; font-style: italic;">Una vez hecho tu pago o depósito, envíanos el
+        comprobante por WhatsApp para despachar tu envío inmediatamente.</p>
+
+      <a id="wa-transfer-btn" href="https://wa.me/525631328337" class="primary-btn" target="_blank"
+        style="display: block; width: 100%; text-decoration: none; padding: 1.2rem; font-weight: bold; background: #25D366; color: #fff; border-radius: 8px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px;">
         Compartir en WhatsApp 📱
       </a>
     </div>
@@ -451,31 +578,36 @@
   <div id="mp-success-modal" class="modal-overlay">
     <div class="modal-content" style="max-width: 520px; text-align: center; padding: 3rem 2rem;">
       <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
-      <h2 style="font-family: var(--font-title); color: var(--color-accent); font-size: 2.5rem; margin-bottom: 1rem;">¡Pago Confirmado!</h2>
+      <h2 style="font-family: var(--font-title); color: var(--color-accent); font-size: 2.5rem; margin-bottom: 1rem;">
+        ¡Pago Confirmado!</h2>
       <p style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.7;">
         Tu pedido ha sido registrado con éxito y enviamos la confirmación a tu correo electrónico.
       </p>
       <p style="color: #aaa; margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.6;">
-        Nos pondremos en contacto contigo pronto para <strong style="color: var(--color-accent);">iniciar la producción</strong> de tus velas artesanales. 🕯️
+        Nos pondremos en contacto contigo pronto para <strong style="color: var(--color-accent);">iniciar la
+          producción</strong> de tus velas artesanales. 🕯️
       </p>
-      <button class="primary-btn" onclick="document.getElementById('mp-success-modal').classList.remove('active'); document.body.style.overflow='auto'; app.navigate('catalogo');" style="background: linear-gradient(135deg, #d4af37, #f0c040); color: #000; font-weight: bold; letter-spacing: 2px; padding: 1rem 2.5rem; border: none; border-radius: 8px; cursor: pointer; font-family: 'Montserrat', sans-serif; text-transform: uppercase;">
+      <button class="primary-btn"
+        onclick="document.getElementById('mp-success-modal').classList.remove('active'); document.body.style.overflow='auto'; app.navigate('catalogo');"
+        style="background: linear-gradient(135deg, #d4af37, #f0c040); color: #000; font-weight: bold; letter-spacing: 2px; padding: 1rem 2.5rem; border: none; border-radius: 8px; cursor: pointer; font-family: 'Montserrat', sans-serif; text-transform: uppercase;">
         ¡Seguir Explorando! 🛍️
       </button>
     </div>
   </div>
   <script src="app.js"></script>
   <script type="text/javascript">
-    (function(d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function() {
-          window.voiceflow.chat.load({
-            verify: { projectID: '69d30d4ba217438ea6e6a9c5' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'development'
-          });
-        }
-        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    (function (d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function () {
+        window.voiceflow.chat.load({
+          verify: { projectID: '69d30d4ba217438ea6e6a9c5' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
   </script>
 </body>
+
 </html>
