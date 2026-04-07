@@ -424,26 +424,28 @@
 
   <!-- Transfer Success Modal -->
   <div id="transfer-success-modal" class="modal-overlay">
-    <div class="modal-content" style="max-width: 500px; text-align: center; padding: 2.5rem 1.5rem; max-height: 90vh; overflow-y: auto; position: relative; border: 1px solid rgba(212,175,55,0.3);">
-      <button class="modal-close" style="position: absolute; top: 1rem; right: 1rem; color: #fff; font-size: 2.5rem; background: none; border: none; cursor: pointer; line-height: 1;" onclick="document.getElementById('transfer-success-modal').classList.remove('active'); document.body.style.overflow='auto'; window.location.hash='#home';">&times;</button>
+    <div class="modal-content" style="max-width: 500px; text-align: center; padding: 2.5rem 1.5rem; max-height: 90vh; overflow-y: auto; position: relative; border: 2px solid #d4af37; background: #111; border-radius: 15px; box-shadow: 0 0 30px rgba(212,175,55,0.2);">
+      <button class="modal-close" style="position: absolute; top: 1rem; right: 1.5rem; color: #fff; font-size: 2.5rem; background: none; border: none; cursor: pointer; line-height: 1; z-index: 10;" onclick="document.getElementById('transfer-success-modal').classList.remove('active'); document.body.style.overflow='auto';">&times;</button>
       
-      <h2 style="font-family: var(--font-title); color: var(--color-accent); font-size: 2.2rem; margin-bottom: 1rem; line-height: 1.2;">¡Pedido Recibido!</h2>
-      
-      <p style="color: #fff; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5; opacity: 0.9;">
-        Tu pedido ha sido registrado con éxito. Realiza tu transferencia o depósito OXXO a la siguiente cuenta:
-      </p>
-      
-      <div style="background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.3); padding: 1.2rem; border-radius: 12px; margin-bottom: 1.5rem; text-align: left;">
-        <p style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #aaa;"><b>BANCO:</b> <span style="color: #fff;">Spin by Oxxo</span></p>
-        <p style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #aaa;"><b>TITULAR:</b> <span style="color: #fff;">Jimena Ortiz Chavero</span></p>
-        <p style="margin-bottom: 0; font-size: 0.9rem; color: #aaa;"><b>CLABE:</b> <br><span style="font-size: 1.1rem; color: var(--color-accent); letter-spacing: 2px; font-weight: bold;">728969000095104101</span></p>
-      </div>
+      <div style="margin-top: 1rem;">
+        <h2 style="font-family: 'Montserrat', sans-serif; color: #d4af37; font-size: 2.2rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px; display: block !important; visibility: visible !important;">¡Pedido Recibido!</h2>
+        
+        <p style="color: #ffffff !important; margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.5; font-family: 'Montserrat', sans-serif; display: block !important;">
+          Tu pedido ha sido registrado. Realiza tu transferencia o depósito a la siguiente cuenta:
+        </p>
+        
+        <div style="background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.4); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; text-align: left; display: block !important;">
+          <p style="margin-bottom: 0.8rem; font-size: 1rem; color: #eee; font-family: 'Montserrat', sans-serif;"><b>BANCO:</b> <span style="color: #fff;">Spin by Oxxo</span></p>
+          <p style="margin-bottom: 0.8rem; font-size: 1rem; color: #eee; font-family: 'Montserrat', sans-serif;"><b>TITULAR:</b> <span style="color: #fff;">Jimena Ortiz Chavero</span></p>
+          <p style="margin-bottom: 0; font-size: 1rem; color: #eee; font-family: 'Montserrat', sans-serif;"><b>CLABE:</b> <br><span style="font-size: 1.25rem; color: #d4af37; letter-spacing: 2px; font-weight: bold; display: block; margin-top: 0.5rem;">728969000095104101</span></p>
+        </div>
 
-      <p style="margin-bottom: 1.5rem; color: #aaa; font-size: 0.9rem; font-style: italic;">Una vez realizado tu pago, pícale al botón de abajo para enviar tu comprobante y despachar tu envío.</p>
-      
-      <a id="wa-transfer-btn" href="https://wa.me/525631328337" class="primary-btn" target="_blank" style="display: block; width: 100%; text-decoration: none; padding: 1.2rem; font-weight: bold; background: #25D366; color: #fff; border-radius: 8px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">
-        Compartir Comprobante WhatsApp 📱
-      </a>
+        <p style="margin-bottom: 2rem; color: #bbb; font-size: 1rem; line-height: 1.5; font-family: 'Montserrat', sans-serif;">Una vez hecho tu pago, haz clic abajo para enviar tu comprobante por WhatsApp.</p>
+        
+        <a id="wa-transfer-btn" href="https://wa.me/525631328337" target="_blank" style="display: block; width: 100%; padding: 1.2rem; font-weight: bold; background: #25D366; color: #fff; border-radius: 10px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3); transition: transform 0.2s;">
+          Compartir en WhatsApp 📱
+        </a>
+      </div>
     </div>
   </div>
 
