@@ -453,29 +453,26 @@ var app = {
           throw new Error("No se pudo crear la preferencia de Mercado Pago");
         }
       } else {
-        // Transferencia: enviar email a Formspree inmediatamente
-        await fetch("https://formspree.io/f/xreorpje", {
-          method: "POST",
-          body: fd,
-          headers: { 'Accept': 'application/json' }
-        });
-
+        // Transferencia: NO enviar correo a Formspree (flujo manual solicitado por USER)
         // Construir mensaje de WhatsApp con todos los detalles del pedido
         const waName    = fd.get('nombre') || '';
         const waPhone   = fd.get('telefono') || '';
         const waAddress = `${fd.get('calle')}, ${fd.get('colonia')}, CP ${fd.get('cp')}, ${fd.get('ciudad')}, ${fd.get('estado')}`;
         const waItems   = this.cart.map(i => `• ${i.name} (x${i.qty || 1}) - $${(i.price*(i.qty||1)).toFixed(2)} MXN`).join('\n');
+        
         const waMsg = encodeURIComponent(
           `🕯️ *NUEVO PEDIDO - VELAS MÉXICO*\n\n` +
+          `*DATOS DEL CLIENTE:*\n` +
           `*Nombre:* ${waName}\n` +
           `*WhatsApp:* ${waPhone}\n\n` +
-          `*🛒 Artículos:*\n${waItems}\n\n` +
-          `*💰 TOTAL: $${totalAmount.toFixed(2)} MXN*\n\n` +
-          `*📍 Dirección de envío:*\n${waAddress}\n\n` +
-          `*Método de pago:* Transferencia / Depósito OXXO\n` +
+          `*🛒 ARTÍCULOS:*\n${waItems}\n\n` +
+          `*💰 TOTAL A PAGAR: $${totalAmount.toFixed(2)} MXN*\n\n` +
+          `*📍 DIRECCIÓN DE ENVÍO:*\n${waAddress}\n\n` +
+          `*MÉTODO DE PAGO:* Transferencia / Depósito OXXO\n` +
           `*CLABE:* 728969000095104101\n\n` +
-          `Adjunto comprobante de pago 📎`
+          `Adjunto mi comprobante de pago 📎`
         );
+        
         const waBtn = document.getElementById('wa-transfer-btn');
         if (waBtn) waBtn.href = `https://wa.me/525631328337?text=${waMsg}`;
 
