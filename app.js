@@ -116,17 +116,39 @@ var app = {
     const vfWidget = document.getElementById('voiceflow-chat-frame') || document.querySelector('.vf-widget-container'); 
     // Nota: Voiceflow a veces inyecta su propio contenedor con una clase distinta.
     if(pageId === 'easteregg') {
-      document.querySelector('.cursor-glow').style.opacity = '1';
-      // OCULTAR CHATBOT
-      if(window.voiceflow && window.voiceflow.chat) {
-         window.voiceflow.chat.hide(); 
-      }
+      const scene = document.getElementById('interactive-scene');
+      const glow = document.querySelector('.cursor-glow');
+      glow.style.opacity = '1';
+
+      // LUZ SIGUE AL CURSOR CON PRECISIÓN
+      this._mouseMoveHandler = (e) => {
+        const rect = scene.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        glow.style.setProperty('--mouse-x', `${x}%`);
+        glow.style.setProperty('--mouse-y', `${y}%`);
+      };
+
+      scene.addEventListener('mousemove', this._mouseMoveHandler);
+
+      // IR A REGALOS AL PICAR EL BOTÓN TRANSPARENTE
+      document.querySelector('.secret-candle-trigger').onclick = (e) => {
+        const rect = scene.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        glow.style.setProperty('--mouse-x', `${x}%`);
+        glow.style.setProperty('--mouse-y', `${y}%`);
+        setTimeout(() => this.navigate('regalos'), 400); // Un pequeño delay para que vea la luz ahí
+      };
+
+      if(window.voiceflow && window.voiceflow.chat) window.voiceflow.chat.hide(); 
     } else {
-      document.querySelector('.cursor-glow').style.opacity = '0';
-      // MOSTRAR CHATBOT
-      if(window.voiceflow && window.voiceflow.chat) {
-         window.voiceflow.chat.show();
+      const scene = document.getElementById('interactive-scene');
+      if (this._mouseMoveHandler && scene) {
+          scene.removeEventListener('mousemove', this._mouseMoveHandler);
       }
+      document.querySelector('.cursor-glow').style.opacity = '0';
+      if(window.voiceflow && window.voiceflow.chat) window.voiceflow.chat.show();
     }
 
     if(pageId === 'regalos') {
@@ -347,15 +369,15 @@ var app = {
   },
 
   shareAndUnlock(platform) {
-    const siteUrl = window.location.href.includes('file://') ? 'https://www.google.com' : window.location.href;
+    const siteUrl = 'https://velasmexicoccc.com';
     const url = encodeURIComponent(siteUrl);
     const text = encodeURIComponent('¡Descubre las increíbles velas artesanales de Velas México Chema Corazón de Cera!');
     let shareUrl = '';
     switch(platform) {
       case 'twitter': shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`; break;
       case 'facebook': shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`; break;
-      case 'instagram': alert('Copia este link y compártelo: ' + window.location.href); break;
-      case 'tiktok': alert('Copia este link y compártelo: ' + window.location.href); break;
+      case 'instagram': alert('¡Casi listo! Comparte el link https://velasmexicoccc.com en tus historias para desbloquear tu regalo.'); break;
+      case 'tiktok': alert('¡Casi listo! Comparte el video de nuestras velas con el link https://velasmexicoccc.com para desbloquear tu regalo.'); break;
     }
     if(shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
     document.getElementById('share-prompt').style.display = 'none';
