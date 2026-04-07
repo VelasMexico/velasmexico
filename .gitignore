@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+npm-debug.log*
+
+# Node modules (si en el futuro se usa npm)
+node_modules/
+
+# Variables de entorno locales (NUNCA subir al repositorio)
+.env
+.env.local
+.env.production

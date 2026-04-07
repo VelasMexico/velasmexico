@@ -436,6 +436,12 @@ var app = {
           body: fd,
           headers: { 'Accept': 'application/json' }
         });
+
+        instructions.textContent = "!Recibimos tus datos!";
+        detailText.textContent = "Tu pedido ha sido registrado con éxito. Realiza el pago a la siguiente cuenta y envía tu comprobante:";
+        bankInfo.style.display = 'block';
+        button.textContent = "Enviar comprobante al WhatsApp";
+        button.href = `https://wa.me/525631328337?text=Hola,%20acabo%20de%20realizar%20mi%20pago%20por%20TRANSFERENCIA%20para%20mi%20pedido.`;
         
         document.getElementById('checkout-modal').classList.remove('active');
         const successModal = document.getElementById('transfer-success-modal');
