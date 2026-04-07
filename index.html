@@ -596,16 +596,19 @@
   </div>
   <script src="app.js"></script>
   <script type="text/javascript">
-    (function (d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function () {
-        window.voiceflow.chat.load({
-          verify: { projectID: '69d30d4ba217438ea6e6a9c5' },
-          url: 'https://general-runtime.voiceflow.com',
-          user: { name: 'Visitante' }
-        });
-      }
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '69d30d4ba217438ea6e6a9c4' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            }
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
   </script>
 </body>
