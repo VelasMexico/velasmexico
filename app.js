@@ -254,7 +254,7 @@ var app = {
     grid.innerHTML = products.map(p => `
       <div class="product-card appear-scroll" onclick="app.openModal(${p.id})">
         <div class="product-img-wrapper">
-          <img src="${p.img}" alt="${p.name}" class="product-img" loading="lazy">
+          <img src="${p.img}" alt="Vela aromática artesanal decorativa ${p.name} - Chema Corazón de Cera CDMX" class="product-img" loading="lazy">
         </div>
         <div class="product-info">
           <h3>${p.name}</h3>
@@ -345,7 +345,7 @@ var app = {
       const itemTotal = item.price * item.qty;
       total += itemTotal; itemsCount += item.qty;
       return `<div class="cart-item">
-          <img src="${item.img}" alt="${item.name}">
+          <img src="${item.img}" alt="Vela aromática artesanal ${item.name} comprada en CDMX" loading="lazy">
           <div class="cart-item-info">
             <div class="cart-item-title">${item.name}</div>
             <div class="cart-item-qty-control" style="display:flex; align-items:center; gap:10px; margin: 5px 0;">
@@ -480,6 +480,11 @@ var app = {
       container.innerHTML = '<p style="color:#aaa; text-align:center; padding: 1rem 0;">Tu canasta está vacía</p>';
       if(confirmBtn) confirmBtn.disabled = true;
     } else {
+      container.innerHTML += `<div style="text-align:center; margin-top:15px; font-size:0.8rem; color:#aaa; letter-spacing:1px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap; opacity:0.8;">
+          <span>✓ Hechas a mano</span>
+          <span>✓ Libres de plomo</span>
+          <span>✓ Envíos en México</span>
+        </div>`;
       if(confirmBtn) confirmBtn.disabled = false;
     }
   },
