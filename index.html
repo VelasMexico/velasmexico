@@ -449,12 +449,14 @@
 
       <div class="checkout-scroll-area"
         style="padding: 2.5rem; overflow-y: auto; max-height: 75vh; -webkit-overflow-scrolling: touch;">
+        <div id="checkout-cart-review" style="margin-bottom: 2.5rem;"></div>
+
         <form id="checkout-form" onsubmit="event.preventDefault(); app.processStripeCheckout();">
           <h3
             style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #fff; opacity: 0.8; margin-bottom: 1.5rem; text-transform: uppercase;">
             1. Datos Personales</h3>
           <div class="form-grid">
-            <div class="input-group full-width" style="grid-column: span 2;">
+            <div class="input-group full-width">
               <input type="text" id="chk-name" required placeholder="Nombre Completo" name="nombre">
               <label for="chk-name" style="font-family: 'Montserrat', sans-serif;">Nombre Completo</label>
             </div>
@@ -472,9 +474,9 @@
             style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #fff; opacity: 0.8; margin: 2rem 0 1.5rem; text-transform: uppercase;">
             2. Dirección de Envío</h3>
           <div class="form-grid">
-            <div class="input-group full-width" style="grid-column: span 2;">
-              <input type="text" id="chk-address" required placeholder="Calle y Número" name="calle">
-              <label for="chk-address" style="font-family: 'Montserrat', sans-serif;">Calle y Número</label>
+            <div class="input-group full-width">
+              <input type="text" id="chk-address" required placeholder="Dirección" name="calle">
+              <label for="chk-address" style="font-family: 'Montserrat', sans-serif;">Dirección</label>
             </div>
             <div class="input-group">
               <input type="text" id="chk-col" required placeholder="Colonia" name="colonia">
