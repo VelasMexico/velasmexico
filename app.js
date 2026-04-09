@@ -59,6 +59,11 @@ var app = {
         
         // Clean URL to avoid duplicate emails on refresh
         window.history.replaceState({}, document.title, window.location.pathname);
+        
+        // Redirect to /gracias after 2.5 seconds for Google Ads tracking
+        setTimeout(() => {
+          window.location.href = '/gracias';
+        }, 2500);
       });
     }
   },
