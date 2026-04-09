@@ -20,6 +20,11 @@ var app = {
     if (window.location.pathname === '/checkout') {
       setTimeout(() => this.openCheckout(), 100);
     }
+
+    // Check if user directly loaded /carrito URL
+    if (window.location.pathname === '/carrito') {
+      setTimeout(() => this.toggleCart(), 100);
+    }
   },
 
   handlePostPaymentSuccess() {
@@ -323,8 +328,20 @@ var app = {
   },
 
   toggleCart() {
-    document.getElementById('cart-drawer').classList.toggle('active');
+    const drawer = document.getElementById('cart-drawer');
+    drawer.classList.toggle('active');
     document.getElementById('cart-drawer-overlay').classList.toggle('active');
+
+    // Update URL to /carrito for tracking purposes
+    if (drawer.classList.contains('active')) {
+      if (window.location.pathname !== '/carrito') {
+        history.pushState({ modal: 'cart' }, '', '/carrito');
+      }
+    } else {
+      if (window.location.pathname === '/carrito') {
+        history.pushState(null, '', '/');
+      }
+    }
   },
 
   addToCart(product, qty = 1) {

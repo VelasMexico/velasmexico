@@ -6,6 +6,10 @@
     {
       "source": "/checkout",
       "destination": "/index.html"
+    },
+    {
+      "source": "/carrito",
+      "destination": "/index.html"
     }
   ],
   "headers": [
