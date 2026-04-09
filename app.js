@@ -15,6 +15,11 @@ var app = {
 
     // Check if we just returned from a successful Mercado Pago payment
     this.handlePostPaymentSuccess();
+
+    // Check if user directly loaded /checkout URL
+    if (window.location.pathname === '/checkout') {
+      setTimeout(() => this.openCheckout(), 100);
+    }
   },
 
   handlePostPaymentSuccess() {
@@ -451,6 +456,11 @@ var app = {
     const checkoutModal = document.getElementById('checkout-modal');
     checkoutModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    // Update URL to /checkout for tracking purposes
+    if (window.location.pathname !== '/checkout') {
+      history.pushState({ modal: 'checkout' }, '', '/checkout');
+    }
   },
 
   renderCheckoutCart() {
@@ -497,6 +507,11 @@ var app = {
   closeCheckout() {
     document.getElementById('checkout-modal').classList.remove('active');
     document.body.style.overflow = 'auto';
+
+    // Clear /checkout from URL if present
+    if (window.location.pathname === '/checkout') {
+      history.pushState(null, '', '/');
+    }
   },
 
   async processStripeCheckout() {
